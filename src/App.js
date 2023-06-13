@@ -1,10 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import TextForm from "./components/TextForms";
-// import React, { useState } from 'react';
 import Navbar from "./components/NavBar";
-import Alert from "./Alert";
-
+import Alert from "./components/Alert";
 function App() {
   const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);
@@ -23,11 +21,14 @@ function App() {
     setMode("light");
       document.body.style.backgroundColor="white";
       showAlert("Light mode has been enabled" ,"success");
+      document.title=`TextUtils -Home`;
+
     }
     else{
-    setMode("dark");
-    document.body.style.backgroundColor="#042743";
-    showAlert("Dark mode has been enabled" ,"success");
+      setMode("dark");
+      document.body.style.backgroundColor="#042743";
+      showAlert("Dark mode has been enabled" ,"success");
+      document.title=`TextUtils -Dark Mode`;
       
     }
   }

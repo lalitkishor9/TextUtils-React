@@ -1,3 +1,18 @@
+/* text form */
+.text-summary{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+}
+.label {
+  font-weight: bold;
+}
+
+
+
+
+
+
+
 .App {
   text-align: center;
 }
