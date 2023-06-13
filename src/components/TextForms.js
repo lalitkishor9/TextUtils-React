@@ -75,8 +75,20 @@ export default function TextForm(props) {
       <h5 className={` text-${props.mode === 'light' ? 'dark' : 'light'}`}>Words:    {wordCount}</h5>
       <h5 className={` text-${props.mode === 'light' ? 'dark' : 'light'}`}>Characters(with spaces): {withSpace}</h5>
       <h5 className={` text-${props.mode === 'light' ? 'dark' : 'light'}`}>Characters(without spaces): {withoutSpace}</h5>
-      <h2 className={` label text-${props.mode === 'light' ? 'dark' : 'light'}`}>Preview</h2>
-      <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>{text.length>0?text:"Enter something to preview it here"}</p>
+      
+
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item ">
+    <h2 class="accordion-header " id="flush-headingOne">
+      <button class="accordion-button bg-info bg-gradient collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+      <strong className={` label text-${props.mode === 'light' ? 'dark' : 'light'}`} style={{fontSize: "40px"}}>Preview</strong>
+      </button>
+    </h2>
+    <div style={{backgroundColor:(props.mode==="light"?"white":"#042743"), color:(props.mode==="light"?"Black":"white")}} id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class= {` accordion-body text-${props.mode === 'light' ? 'dark' : 'light'}`}>{text.length>0?text:"Enter something to preview it here"}</div>
+    </div>
+  </div>
+    </div>
     </div>
     
     </>
