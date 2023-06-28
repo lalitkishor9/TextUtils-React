@@ -15,6 +15,10 @@ import {
 function App() {
   const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);
+  const [style, myStyle] = useState({color: "black",
+  backgroundColor: "white"});
+
+  
 
   const showAlert = (message, type) => {
     setAlert({
@@ -31,7 +35,13 @@ function App() {
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
       document.title = `TextUtils -Home`;
+      myStyle({color: "black",
+      backgroundColor: "white"});
     } else {
+      myStyle({
+        color: "white",
+        backgroundColor: "black"
+      });
       setMode("dark");
       document.body.style.backgroundColor = "#042743";
       showAlert("Dark mode has been enabled", "success");
@@ -45,12 +55,11 @@ function App() {
       <Alert alert={alert} />
       <div className="container">
         <Routes>
-          <Route exact path="/about" element={<About />}>
+          <Route exact path="/about" element={<About myStyle={style}/>}>
           </Route>
           <Route exact path="/" element={<TextForm showAlert={showAlert} mode={mode} />}>
           </Route>
         </Routes>
-        <TextForm showAlert={showAlert} mode={mode} />
       </div>
       </Router>
     </>

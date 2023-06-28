@@ -36,9 +36,7 @@ export default function TextForm(props) {
       props.showAlert("Text cleared","success");
     }
     const copyText=()=>{
-      let text=document.getElementById("myBox");
-      text.select();
-      navigator.clipboard.writeText(text.value);
+      navigator.clipboard.writeText(text);
       props.showAlert("Copied to clipboard","success");
     }
     const extraSpace=()=>{
@@ -63,11 +61,11 @@ export default function TextForm(props) {
         <textarea  className="form-control" style={{backgroundColor:(props.mode==="light"?"white":"#042743"), color:(props.mode==="light"?"Black":"white")}} onChange={handleOnChange} aria-label="With textarea" value={text} id="myBox" rows="8"></textarea>
       </div>
       <div >
-      <button className="mx-2 my-3 btn btn-primary" onClick={convertUpCase}>Convert to UpperCase</button>
-      <button className="mx-2 my-3 btn btn-primary" onClick={convertLoCase}>Convert to LowerCase</button>
-      <button className="mx-2 my-3 btn btn-primary" onClick={clearText}>Clear Text</button>
-      <button className="mx-2 my-3 btn btn-primary" onClick={copyText}>Copy Text</button>
-      <button className="mx-2 my-3 btn btn-primary" onClick={extraSpace}>Remove Extra Space</button>
+      <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={convertUpCase}>Convert to UpperCase</button>
+      <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={convertLoCase}>Convert to LowerCase</button>
+      <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={clearText}>Clear Text</button>
+      <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={copyText}>Copy Text</button>
+      <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={extraSpace}>Remove Extra Space</button>
       </div>
     </div>
     <div className="container my-2 ">
@@ -78,18 +76,18 @@ export default function TextForm(props) {
       
 
       <div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item ">
-    <h2 class="accordion-header " id="flush-headingOne">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
       <button class="accordion-button bg-info bg-gradient collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-      <strong className={` label text-${props.mode === 'light' ? 'dark' : 'light'}`} style={{fontSize: "40px"}}>Preview</strong>
+        <strong className={`label text-${props.mode === 'light' ? 'dark' : 'light'}`} style={{ fontSize: "40px" }}>Preview</strong>
       </button>
     </h2>
-    <div style={{backgroundColor:(props.mode==="light"?"white":"#042743"), color:(props.mode==="light"?"Black":"white")}} id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div class= {` accordion-body text-${props.mode === 'light' ? 'dark' : 'light'}`}>{text.length>0?text:"Enter something to preview it here"}</div>
+    <div style={{ backgroundColor: (props.mode === "light" ? "white" : "#042743"), color: (props.mode === "light" ? "black" : "white"), overflowWrap: "break-word", wordWrap: "break-word" }} id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class={`accordion-body text-${props.mode === 'light' ? 'dark' : 'light'}`}>{text.length > 0 ? text : "Enter something to preview it here"}</div>
     </div>
   </div>
-    </div>
-    </div>
+</div>
+</div>
     
     </>
   );
