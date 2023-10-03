@@ -14,7 +14,7 @@ import Alert from "./components/Alert";
 
 function App() {
   const [mode, setMode] = useState("light");
-  const [alert, setAlert] = useState(null);
+  const [alert, setAlert] = useState("");
   // const [style, myStyle] = useState({color: "black",
   // backgroundColor: "white"});
 
