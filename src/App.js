@@ -50,18 +50,19 @@ function App() {
   };
   return (
     <>
-    <Router>
+    {/* <Router> */}
       <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container">
-        <Routes>
-          <Route exact path="/about" element={<About myStyle={style}/>}>
-          </Route>
-          <Route exact path="/" element={<TextForm showAlert={showAlert} mode={mode} />}>
-          </Route>
-        </Routes>
+        {/* <Routes> */}
+        <About myStyle={style}/>
+          {/* <Route exact path="/about" element={<About myStyle={style}/>}> */}
+          {/* </Route> */}
+          {/* <Route exact path="/" element={<TextForm showAlert={showAlert} mode={mode} />}> */}
+          {/* </Route> */}
+        {/* </Routes> */}
       </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }

@@ -1,4 +1,4 @@
-# Text Editor React
+# TextUtils-React app
 
 ## Visit the App
 [Click here to visit the Text Editor React App](https://lalitkishor9.github.io/TextUtils-React/)
