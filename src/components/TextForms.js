@@ -52,6 +52,15 @@ export default function TextForm(props) {
         setWithSpace(event.length);
     };
 
+    const convertToSpeech = () => {
+      let newText = text;
+  
+      if (newText) {
+        const utterance = new SpeechSynthesisUtterance(newText);
+        speechSynthesis.speak(utterance);
+      }
+    }
+
   return (
     <>
     <div className="container">
@@ -64,8 +73,10 @@ export default function TextForm(props) {
       <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={convertUpCase}>Convert to UpperCase</button>
       <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={convertLoCase}>Convert to LowerCase</button>
       <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={clearText}>Clear Text</button>
-      <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={copyText}>Copy Text</button>
+      <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={copyText}>Copy Text <i class="fas fa-copy"></i></button>
       <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={extraSpace}>Remove Extra Space</button>
+      <button disabled={text.length===0} className="mx-2 my-3 btn btn-primary" onClick={convertToSpeech}>Convert to Speech <i class="fas fa-microphone"></i> </button>
+      
       </div>
     </div>
     <div className="container my-2 ">
